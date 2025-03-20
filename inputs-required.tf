@@ -21,3 +21,18 @@ variable "component" {
   description = "https://hmcts.github.io/glossary/#component"
   type        = string
 }
+
+variable "storage_account_id" {
+  description = "ID of existing storage account"
+  type        = string
+}
+
+variable "key_vault_id" {
+  description = "ID of existing key vault"
+  type        = string
+}
+
+variable "application_insights_id" {
+  description = "ID of existing application insights"
+  type        = string
+}
