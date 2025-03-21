@@ -20,7 +20,7 @@ resource "azurerm_ai_foundry" "ai_foundry" {
 }
 
 resource "azurerm_machine_learning_workspace" "ml_workspace" {
-  name                    = "${local.name}-ml-workspace-${var.env}"
+  name                    = "${var.product}-ml-workspace-${var.env}"
   location                = azurerm_ai_services.ai_services.location
   resource_group_name     = azurerm_ai_services.ai_services.location
   application_insights_id = var.application_insights_id
