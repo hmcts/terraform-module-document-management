@@ -8,7 +8,7 @@ resource "azurerm_ai_services" "ai_services" {
 }
 
 resource "azurerm_ai_foundry" "ai_foundry" {
-  name                = "${local.name}-ai-foundry-${var.env}"
+  name                = "${var.product}-ai-foundry-${var.env}"
   location            = azurerm_ai_services.ai_services.location
   resource_group_name = azurerm_ai_services.ai_services.location
   storage_account_id  = var.storage_account_id
