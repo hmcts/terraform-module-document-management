@@ -1,5 +1,5 @@
 resource "azurerm_ai_services" "ai_services" {
-  name                = "${local.name}-ai-services-${var.env}"
+  name                = "${var.product}-ai-services-${var.env}"
   location            = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
   resource_group_name = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
   sku_name            = "S0"
