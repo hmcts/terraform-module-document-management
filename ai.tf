@@ -18,7 +18,7 @@ resource "azurerm_cognitive_account" "cognitive_account" {
   resource_group_name = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
   kind                = var.cognitive_account_kind
 
-  sku_name = "S0"
+  sku_name = var.cognitive_account_sku
 
   identity {
     type = "SystemAssigned"

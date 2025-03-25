@@ -14,3 +14,9 @@ variable "name" {
   default     = ""
   description = "The default name will be product+component+env, you can override the product+component part by setting this"
 }
+
+variable "cognitive_account_sku" {
+  description = "SKU of cognitive account"
+  type        = string
+  default     = "F0"
+}
