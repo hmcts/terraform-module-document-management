@@ -9,6 +9,10 @@ resource "azurerm_ai_foundry" "ai_foundry" {
     type = "SystemAssigned"
   }
 
+  managed_network {
+    isolation_mode = "AllowOnlyInternetOutbound"
+  }
+
   tags = var.common_tags
 }
 
