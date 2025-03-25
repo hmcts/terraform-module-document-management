@@ -44,5 +44,9 @@ resource "azurerm_machine_learning_workspace" "ml_workspace" {
     type = "SystemAssigned"
   }
 
+  managed_network {
+    isolation_mode = "AllowOnlyInternetOutbound"
+  }
+
   tags = var.common_tags
 }
