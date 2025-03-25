@@ -17,6 +17,20 @@ resource "azurerm_ai_foundry" "ai_foundry" {
   identity {
     type = "SystemAssigned"
   }
+
+  tags = var.common_tags
+}
+
+resource "azurerm_cognitive_account" "cognitive_account" {
+  name                = "${var.product}-cognitive-account-${var.env}"
+  location            = azurerm_ai_services.ai_services.location
+  resource_group_name = azurerm_ai_services.ai_services.location
+  kind                = var.cognitive_account_kind
+
+  sku_name = "S0"
+
+  tags = var.common_tags
+
 }
 
 resource "azurerm_machine_learning_workspace" "ml_workspace" {
@@ -30,4 +44,6 @@ resource "azurerm_machine_learning_workspace" "ml_workspace" {
   identity {
     type = "SystemAssigned"
   }
+
+  tags = var.common_tags
 }

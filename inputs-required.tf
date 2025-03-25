@@ -36,3 +36,8 @@ variable "application_insights_id" {
   description = "ID of existing application insights"
   type        = string
 }
+
+variable "cognitive_account_kind" {
+  description = "Kind of cognitive account"
+  type        = string
+}
