@@ -1,14 +1,12 @@
-# terraform-module-template
+# terraform-module-ai-services
 
-<!-- TODO fill in resource name in link to product documentation -->
-Terraform module for [Resource name](https://example.com).
+Terraform module to create Azure AI resources
 
 ## Example
 
-<!-- todo update module name -->
 ```hcl
-module "todo_resource_name" {
-  source = "git@github.com:hmcts/terraform-module-todo?ref=main"
+module "ai" {
+  source = "git@github.com:hmcts/terraform-module-ai-services?ref=main"
   ...
 }
 
