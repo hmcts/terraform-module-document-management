@@ -20,6 +20,10 @@ resource "azurerm_cognitive_account" "cognitive_account" {
 
   sku_name = "S0"
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   tags = var.common_tags
 
 }
