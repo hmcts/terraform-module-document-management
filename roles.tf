@@ -13,5 +13,5 @@ resource "azurerm_role_assignment" "blob_reader_from_ai_foundry" {
 resource "azurerm_role_assignment" "blob_reader_from_ml_workspace" {
   scope                = var.storage_account_id
   role_definition_name = "Storage Blob Data Reader"
-  principal_id         = azurerm_ml_machine_learning_workspace.ml_workspace.identity[0].principal_id
+  principal_id         = azurerm_machine_learning_workspace.ml_workspace.identity[0].principal_id
 }
