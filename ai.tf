@@ -10,7 +10,7 @@ resource "azurerm_ai_foundry" "ai_foundry" {
   }
 
   managed_network {
-    isolation_mode = "AllowOnlyInternetOutbound"
+    isolation_mode = "AllowInternetOutbound"
   }
 
   tags = var.common_tags
@@ -45,7 +45,7 @@ resource "azurerm_machine_learning_workspace" "ml_workspace" {
   }
 
   managed_network {
-    isolation_mode = "AllowOnlyInternetOutbound"
+    isolation_mode = "AllowInternetOutbound"
   }
 
   tags = var.common_tags
