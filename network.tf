@@ -1,5 +1,5 @@
 resource "azurerm_private_endpoint" "foundry_private_endpoint" {
-  name                = "${var.product}-${var.component}-ai-foundry-pe-${var.env}"
+  name                = "${var.product}-ai-foundry-pe-${var.env}"
   location            = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
   resource_group_name = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
   subnet_id           = var.subnet_id
@@ -21,7 +21,7 @@ resource "azurerm_private_endpoint" "foundry_private_endpoint" {
 }
 
 resource "azurerm_private_endpoint" "ml_private_endpoint" {
-  name                = "${var.product}-${var.component}-ml-workspace-pe-${var.env}"
+  name                = "${var.product}-ml-workspace-pe-${var.env}"
   location            = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
   resource_group_name = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
   subnet_id           = var.subnet_id
