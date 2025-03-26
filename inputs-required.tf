@@ -41,3 +41,8 @@ variable "cognitive_account_kind" {
   description = "Kind of cognitive account"
   type        = string
 }
+
+variable "subnet_id" {
+  description = "ID of existing subnet for the private endpoint"
+  type        = string
+}
