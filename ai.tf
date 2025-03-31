@@ -18,11 +18,20 @@ resource "azurerm_ai_foundry" "ai_foundry" {
 }
 
 resource "azurerm_cognitive_account" "cognitive_account" {
-  name                          = "${var.product}-cognitive-account-${var.env}"
-  location                      = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
-  resource_group_name           = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
-  kind                          = var.cognitive_account_kind
+  name                = "${var.product}-cognitive-account-${var.env}"
+  location            = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
+  resource_group_name = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
+  kind                = var.cognitive_account_kind
+
   public_network_access_enabled = false
+  custom_subdomain_name         = "${var.product}-cognitive-account-${var.env}"
+  network_acls {
+    default_action = "Deny"
+    ip_rules       = var.ip_rules
+    virtual_network_rules {
+      subnet_id = var.subnet_id
+    }
+  }
 
   sku_name = var.cognitive_account_sku
 

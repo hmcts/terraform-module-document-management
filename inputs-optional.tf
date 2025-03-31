@@ -20,3 +20,8 @@ variable "cognitive_account_sku" {
   type        = string
   default     = "F0"
 }
+
+variable "ip_rules" {
+  description = "IP rules for the cognitive account"
+  default     = []
+}
