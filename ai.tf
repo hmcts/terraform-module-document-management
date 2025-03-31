@@ -4,7 +4,7 @@ resource "azurerm_ai_foundry" "ai_foundry" {
   resource_group_name   = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].name : var.existing_resource_group_name
   storage_account_id    = var.storage_account_id
   key_vault_id          = var.key_vault_id
-  public_network_access = false
+  public_network_access = "Disabled"
 
   identity {
     type = "SystemAssigned"
