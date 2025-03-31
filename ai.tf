@@ -50,3 +50,22 @@ resource "azurerm_machine_learning_workspace" "ml_workspace" {
 
   tags = var.common_tags
 }
+
+resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
+  name                          = "${var.product}-compute-cluster-${var.env}"
+  location                      = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
+  vm_priority                   = "LowPriority"
+  vm_size                       = "Standard_DS2_v2"
+  machine_learning_workspace_id = azurerm_machine_learning_workspace.ml_workspace.id
+  subnet_resource_id            = var.subnet_id
+
+  scale_settings {
+    min_node_count                       = 0
+    max_node_count                       = 1
+    scale_down_nodes_after_idle_duration = "PT30S" # 30 seconds
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
