@@ -60,7 +60,6 @@ resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
   vm_priority                   = "LowPriority"
   vm_size                       = "Standard_DS2_v2"
   machine_learning_workspace_id = azurerm_machine_learning_workspace.ml_workspace.id
-  subnet_resource_id            = var.subnet_id
 
   scale_settings {
     min_node_count                       = 0
