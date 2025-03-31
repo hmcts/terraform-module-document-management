@@ -66,14 +66,14 @@ resource "azurerm_machine_learning_workspace" "ml_workspace" {
 resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
   name                          = "${var.product}-compute-cluster-${var.env}"
   location                      = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
-  vm_priority                   = "LowPriority"
-  vm_size                       = "Standard_DS2_v2"
+  vm_priority                   = var.vm_priority
+  vm_size                       = var.vm_size
   machine_learning_workspace_id = azurerm_machine_learning_workspace.ml_workspace.id
 
   scale_settings {
-    min_node_count                       = 1
-    max_node_count                       = 1
-    scale_down_nodes_after_idle_duration = "PT30S" # 30 seconds
+    min_node_count                       = var.min_node_count
+    max_node_count                       = var.max_node_count
+    scale_down_nodes_after_idle_duration = var.scaledown_idle_duration
   }
 
   identity {
