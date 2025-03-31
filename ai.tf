@@ -62,7 +62,7 @@ resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
   machine_learning_workspace_id = azurerm_machine_learning_workspace.ml_workspace.id
 
   scale_settings {
-    min_node_count                       = 0
+    min_node_count                       = 1
     max_node_count                       = 1
     scale_down_nodes_after_idle_duration = "PT30S" # 30 seconds
   }
