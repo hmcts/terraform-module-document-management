@@ -54,3 +54,21 @@ variable "scaledown_idle_duration" {
   type        = string
   default     = "PT30S"
 }
+
+variable "public_network_access_foundry" {
+  description = "Public network access for the resource"
+  type        = string
+  default     = "Enabled"
+}
+
+variable "public_network_access_cognitive" {
+  description = "Public network access for cognitive account"
+  type        = bool
+  default     = true
+}
+
+variable "public_network_access_ml" {
+  description = "Public network access for ML workspace"
+  type        = bool
+  default     = true
+}
