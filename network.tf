@@ -18,6 +18,9 @@ resource "azurerm_private_endpoint" "foundry_private_endpoint" {
       "/subscriptions/1baf5470-1c3e-40d3-a6f7-74bfbce4b348/resourceGroups/core-infra-intsvc-rg/providers/Microsoft.Network/privateDnsZones/privatelink.notebooks.azure.net"
     ]
   }
+
+  tags = var.common_tags
+
 }
 
 resource "azurerm_private_endpoint" "cognitive_private_endpoint" {
@@ -39,6 +42,9 @@ resource "azurerm_private_endpoint" "cognitive_private_endpoint" {
       "/subscriptions/1baf5470-1c3e-40d3-a6f7-74bfbce4b348/resourceGroups/core-infra-intsvc-rg/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com"
     ]
   }
+
+  tags = var.common_tags
+
 }
 
 resource "azurerm_private_endpoint" "ml_private_endpoint" {
@@ -61,4 +67,7 @@ resource "azurerm_private_endpoint" "ml_private_endpoint" {
       "/subscriptions/1baf5470-1c3e-40d3-a6f7-74bfbce4b348/resourceGroups/core-infra-intsvc-rg/providers/Microsoft.Network/privateDnsZones/privatelink.notebooks.azure.net"
     ]
   }
+
+  tags = var.common_tags
+
 }
