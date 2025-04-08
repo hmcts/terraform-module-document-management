@@ -72,3 +72,8 @@ variable "public_network_access_ml" {
   type        = bool
   default     = true
 }
+
+variable "ai_project_name_override" {
+  description = "value to override the project name"
+  type        = string
+}
