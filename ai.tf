@@ -17,6 +17,18 @@ resource "azurerm_ai_foundry" "ai_foundry" {
   tags = var.common_tags
 }
 
+resource "azurerm_ai_foundry_project" "ai_foundry_project" {
+  name               = "${var.product}-project-${var.env}"
+  location           = azurerm_ai_foundry.ai_foundry.location
+  ai_services_hub_id = azurerm_ai_foundry.ai_foundry.id
+  identity {
+    type = "SystemAssigned"
+  }
+
+  tags = var.common_tags
+
+}
+
 resource "azurerm_cognitive_account" "cognitive_account" {
   name                = "${var.product}-cognitive-account-${var.env}"
   location            = var.existing_resource_group_name == null ? azurerm_resource_group.rg[0].location : var.location
