@@ -18,7 +18,7 @@ resource "azurerm_ai_foundry" "ai_foundry" {
 }
 
 resource "azurerm_ai_foundry_project" "ai_foundry_project" {
-  name               = "${var.product}-project-${var.env}"
+  name               = var.ai_project_name_override == null ? "${var.product}-project-${var.env}" : var.ai_project_name_override
   location           = azurerm_ai_foundry.ai_foundry.location
   ai_services_hub_id = azurerm_ai_foundry.ai_foundry.id
   identity {
