@@ -37,13 +37,6 @@ resource "azurerm_cognitive_account" "cognitive_account" {
 
   public_network_access_enabled = var.public_network_access_cognitive
   custom_subdomain_name         = "${var.product}-cognitive-account-${var.env}"
-  network_acls {
-    default_action = "Deny"
-    ip_rules       = var.ip_rules
-    virtual_network_rules {
-      subnet_id = var.subnet_id
-    }
-  }
 
   sku_name = var.cognitive_account_sku
 
