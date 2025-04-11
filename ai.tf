@@ -36,6 +36,7 @@ resource "azurerm_cognitive_account" "cognitive_account" {
   kind                = var.cognitive_account_kind
 
   public_network_access_enabled = var.public_network_access_cognitive
+  custom_subdomain_name         = "${var.product}-cognitive-account-${var.env}"
 
   sku_name = var.cognitive_account_sku
 
